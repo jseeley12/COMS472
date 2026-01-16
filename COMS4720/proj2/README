@@ -1,0 +1,4 @@
+HOW TO RUN:
+1. javac -d out *.java
+2. java -cp out <path to Checkers.java>
+
