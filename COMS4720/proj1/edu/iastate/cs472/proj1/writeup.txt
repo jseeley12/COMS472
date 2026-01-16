@@ -1,0 +1,8 @@
+
+On top of h1(Number of mismatched tiles) and h2(Manhattan distance), I implemented h3 to compute single and double moves. This allows the use of the operations DBL_LEFT, DBL_RIGHT, DBL_UP, and DBL_DOWN. 
+In the function computeNumSingleDoubleMoves(), I implemented my solution. I first checked if the moves were non-negative and then checked for adjacent tile pairs. 
+When first implementing this method I was running into issues with the speed it was taking to complete it. So, by finding the adjacent tile pairs I was able to eliminate some impossible paths that could speed it up. 
+So, after doing that I was able to use manhattandistance and mismatchedtiles heuristics to create h3. My method was max(ceil(computeManhattanDistance()-Adjacent Pairs2),ceil (computeNumMismatchedTiles()2)).
+This gives a tighter lower bound on the moves that are needed for single and double moves. When acting a double move, you can be at most 2 tiles closer to your goal state or position. 
+This, in turn, identifies the fewest possible moves to the goal, with the goal being at a minimum of half of the Manhattan distance while eliminating the adjacent pairs. 
+This is admissible because the manhattan distance is admissible and by dividing it and removing the adjacent pairs it will reduce the estimate. 
